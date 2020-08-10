@@ -1,16 +1,16 @@
 from django import forms
 from django.forms import ModelForm
 from django.core import validators
-from .models import Student
+from .models import Customer
 
 
-class signup_form(forms.ModelForm):
+class RegisterForm(forms.ModelForm):
     class Meta:
-        model=Student
-        fields = "__all__"
+        model=Customer
+        fields=('first_name', 'last_name', 'email_address', 'password', 'confirm_password')
 
 
 class LoginForm(forms.ModelForm):
     class Meta:
-        model=Student
-        fields= "__all__"
+        model=Customer
+        fields=('username', 'email_address', 'password')

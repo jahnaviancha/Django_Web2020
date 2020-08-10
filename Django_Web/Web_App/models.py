@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class Student(models.Model):
+class Customer(models.Model):
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=30)
     username = models.CharField(max_length=50)
@@ -11,4 +11,4 @@ class Student(models.Model):
     confirm_password=models.CharField(max_length=15)
 
     class Meta:
-        db_table= 'Student'
+        db_table= 'customer'

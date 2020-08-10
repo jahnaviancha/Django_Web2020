@@ -1,7 +1,8 @@
 from django import forms
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
-from . import forms
+from .forms import RegisterForm,LoginForm
+from django.contrib.auth import authenticate
 from . import models
 
 
@@ -9,7 +10,7 @@ from . import models
 
 def home(request):
     if request.method == 'POST':
-        form=forms.signup_form(request.POST)
+        form= RegisterForm(request.POST)
         if form.is_valid():
             try:
                 form.save()
@@ -17,7 +18,7 @@ def home(request):
             except:
                 pass
     else:
-        form=forms.signup_form()
+        form=RegisterForm()
     return render(request, 'home.html', {'form': form})
 
 
@@ -27,11 +28,12 @@ def success(request):
 
 def login(request):
     if request.method == 'POST':
-        form=forms.LoginForm(request.POST)
+        form = LoginForm(request.POST)
         if form.is_vaild():
-            try:
-                form.save()
-                return redirect('success')
-            except:
-                pass
-    return render(request, 'login.html', {'form': form})
+            form.save()
+            return redirect('success')
+        else:
+            pass
+    else:
+        form = LoginForm()
+    return render(request, 'login.html', {' form':form})

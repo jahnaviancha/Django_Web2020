@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'django_web',
         'USER': 'postgres',
         'PASSWORD': 'Sathvi277399',
-        'HOST': 'Localhost',
+        'HOST': 'localhost',
     }
 }
 
