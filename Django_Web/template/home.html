@@ -9,11 +9,11 @@
 </head>
 <body>
     <div class="container">
-    <form method="POST">
-        {% csrf_token %}
-		<h2>Sign Up</h2>
+        <h2>Sign Up</h2>
 		<p>Please fill in this form to create an account!</p>
 		<hr>
+    <form method="POST">
+        {% csrf_token %}
          <div class="form-group">
             <label> First_Name </label> {{ form.first_name }}
          </div>
